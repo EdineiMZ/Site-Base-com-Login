@@ -65,11 +65,11 @@ Antes de iniciar, certifique-se de ter instalado em sua máquina:
 
 1. **Clonar o repositório** ou baixar o código:
    ```bash
-   git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+   git clone https://github.com/EdineiMZ/Sistema-de-Login-Base/tree/master
 
 2. **Entre no diretório do projeto:
    ```bash
-   cd SEU_REPOSITORIO
+   cd Sistema-de-Login-Base
 
 3. **Instale as dependências:
    ```bash
