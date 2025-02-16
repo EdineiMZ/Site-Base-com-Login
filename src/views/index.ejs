@@ -1,0 +1,34 @@
+<%- include('partials/header') %>
+
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-center">Bem-vindo ao Meu Site!</h1>
+        <p class="text-center">
+            <em>Sistema de Login Avançado em Node.js</em>
+        </p>
+
+        <!-- Se há success_msg, exibe e ignora error_msg -->
+        <% if (success_msg) { %>
+            <div id="flashMessage" class="alert alert-success">
+                <%= success_msg %>
+            </div>
+            <!-- Se não há success_msg, mas há error_msg, exibe a vermelha -->
+        <% } else if (error_msg) { %>
+            <div id="flashMessage" class="alert alert-danger">
+                <%= error_msg %>
+            </div>
+        <% } %>
+
+        <script>
+            // Após 5 segundos, esconde a div de mensagem
+            setTimeout(() => {
+                const flashEl = document.getElementById('flashMessage');
+                if (flashEl) {
+                    flashEl.style.display = 'none';
+                }
+            }, 5000);
+        </script>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

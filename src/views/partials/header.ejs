@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <title>Sistema de Login</title>
+    <!-- Bootstrap CSS -->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <!-- Seu arquivo CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Meu Site</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <!-- Se NÃO está logado -->
+                <% if (!user) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Registrar</a>
+                    </li>
+
+                    <!-- Se ESTÁ logado -->
+                <% } else { %>
+                    <!-- Apresenta o nome do usuário e sua imagem de perfil (caso exista) -->
+                    <li class="nav-item d-flex align-items-center text-white me-3">
+                        Bem-vindo, <%= user.name %>
+                        <% if (user.profileImage) { %>
+                            <img
+                                    src="data:image/png;base64,<%= user.profileImage.toString('base64') %>"
+                                    alt="Foto de Perfil"
+                                    style="width: 40px; height: 40px; border-radius: 50%; margin-left: 10px;"
+                            />
+                        <% } %>
+                    </li>
+
+                    <!-- Link de Logout sempre disponível -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+
+                    <!-- Gerenciar Usuários só aparece para role >= 4 -->
+                    <% if (user.role >= 4) { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/manage">Gerenciar Usuários</a>
+                        </li>
+                    <% } %>
+
+                    <!-- Página 1 requer role >= 1 -->
+                    <% if (user.role >= 1) { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pages/page1">Página 1</a>
+                        </li>
+                    <% } %>
+
+                    <!-- Página 2 requer role >= 3 -->
+                    <% if (user.role >= 3) { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pages/page2">Página 2</a>
+                        </li>
+                    <% } %>
+                <% } %>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">

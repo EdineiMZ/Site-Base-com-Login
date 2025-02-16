@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2>Login</h2>
+
+        <!-- Exibe mensagem de sucesso somente se success_msg existir e não for vazio -->
+        <% if (success_msg && success_msg.length) { %>
+            <div class="alert alert-success"><%= success_msg %></div>
+        <% } %>
+
+        <!-- Exibe mensagem de erro somente se error_msg existir e não for vazio -->
+        <% if (error_msg && error_msg.length) { %>
+            <div class="alert alert-danger"><%= error_msg %></div>
+        <% } %>
+
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input
+                        required
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        id="email"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Senha</label>
+                <input
+                        required
+                        type="password"
+                        class="form-control"
+                        name="password"
+                        id="password"
+                />
+            </div>
+            <button type="submit" class="btn btn-primary">
+                Entrar
+            </button>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

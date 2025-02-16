@@ -1,0 +1,96 @@
+<%- include('../partials/header') %>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2>Registrar</h2>
+
+        <!-- Exibe mensagem de sucesso somente se success_msg existir e não for vazio -->
+        <% if (success_msg && success_msg.length) { %>
+            <div class="alert alert-success"><%= success_msg %></div>
+        <% } %>
+
+        <!-- Exibe mensagem de erro somente se error_msg existir e não for vazio -->
+        <% if (error_msg && error_msg.length) { %>
+            <div class="alert alert-danger"><%= error_msg %></div>
+        <% } %>
+
+        <!-- Ajuste: multipart/form-data para upload de arquivo -->
+        <form action="/register" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nome</label>
+                <input
+                        required
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        id="name"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input
+                        required
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        id="email"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Senha</label>
+                <input
+                        required
+                        type="password"
+                        class="form-control"
+                        name="password"
+                        id="password"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Telefone</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        name="phone"
+                        id="phone"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Endereço</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        name="address"
+                        id="address"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="dateOfBirth" class="form-label">Data de Nascimento</label>
+                <input
+                        type="date"
+                        class="form-control"
+                        name="dateOfBirth"
+                        id="dateOfBirth"
+                />
+            </div>
+
+            <!-- Campo para upload da imagem -->
+            <div class="mb-3">
+                <label for="profileImage" class="form-label">Foto de Perfil (até 5MB)</label>
+                <input
+                        type="file"
+                        class="form-control"
+                        name="profileImage"
+                        id="profileImage"
+                        accept="image/*"
+                />
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                Registrar
+            </button>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
