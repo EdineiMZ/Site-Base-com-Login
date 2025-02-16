@@ -97,12 +97,15 @@ Antes de iniciar, certifique-se de ter instalado em sua máquina:
 6. **Executar o servidor:
    ```bash
    npm run dev
-Ou
+   ```
+   
+   Ou
+   
    ```bash
    npm start
-```
+   ```
 
-7. **Acessar no navegador:
+8. **Acessar no navegador:
    ```bash
    http://localhost:3000
    ```
@@ -117,6 +120,7 @@ Ou
 ---
 
 ### Estrutura de Pastas (Simplificada)
+```
 .
 ├── .env
 ├── package.json
@@ -159,7 +163,7 @@ Ou
 │   └── js
 │       └── script.js
 └── ...
-
+```
 ---
 
 ### USO
