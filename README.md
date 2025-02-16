@@ -186,7 +186,7 @@ Páginas restritas:
 
 ---
 
-Feito com ♥ por EdineiMZ
+Feito por EdineiMZ
 Sinta-se livre para contribuir, reportar issues ou sugerir melhorias!
 
 
